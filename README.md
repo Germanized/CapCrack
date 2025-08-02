@@ -1,54 +1,57 @@
-# CapCrack
+# CapCrackV2
 
-A Python CapCut cracking tool by Germanized
+A Python-based tool for modifying the CapCut video editor to enable PRO features. This is achieved by patching the `VECreator.dll` file.
 
-## What is this?
+## Features
 
-This is a Python  CapCrack tool that lets you unlock premium features in CapCut video editor. The script modifies CapCut's DLL files to enable pro features and remove watermarks without paying.
+- **Automatic Process Handling**: Detects and terminates any running instances of `CapCut.exe` before applying modifications.
+- **DLL Patching**: Modifies the `VECreator.dll` to unlock features.
+- **Backup Management**: Automatically creates backups of the original and the modified DLL (`_Off.dll` and `_On.dll` respectively), allowing users to easily toggle the changes.
+- **Watermark Removal**: Deletes the watermark resource folder to prevent watermarks from being applied to exported videos.
+- **Interactive UI**: Uses a command-line interface to guide the user through the process.
+
+## Version History
+
+### Version 2.5 (Latest) (BETA)
+
+This version focuses on improving the robustness, maintainability, and user experience of the tool.
+
+**Changes:**
+- **Code Refactoring**: The script has been refactored to be more organized and easier to read.
+- **Configuration Section**: Hardcoded values such as byte patterns and filenames have been moved to a global configuration section at the top of the file. This makes it significantly easier to update the patch for future versions of CapCut.
+- **Improved Error Handling**: Added more specific error messages to help diagnose issues if the patching process fails.
+- **Enhanced User Feedback**: The console output is clearer and provides better status updates throughout the process.
+
+### Version 2.0
+
+The initial release of CapCrackV2.
+
+**Features:**
+- Provided the core functionality for patching `VECreator.dll`.
+- Included process termination and backup creation.
+- Patch values were hardcoded directly within the script's functions.
 
 ## Requirements
 
-- Python 3.6+
-- psutil library
-- Windows OS with CapCut installed
+- Python 3.x
+- The following Python libraries are required:
+  - `rich`
+  - `psutil`
 
-## How to use
-
-1. Install the required library:
-```
-pip install psutil
-```
-
-2. Run the script:
-```
-python capcrack.py
+You can install them using pip:
+```sh
+pip install rich psutil
 ```
 
-3. Type "on" to enable premium features or "off" to disable them
+## Usage
 
-4. The script will:
-   - Find and close any running CapCut instances
-   - Locate the VECreator.dll file
-   - Create backup copies
-   - Patch the DLL to enable/disable pro features
-   - Remove watermark folders
-   
-5. Start CapCut after the script finishes
+1.  Ensure all requirements are installed.
+2.  Run the script from your terminal:
+    ```sh
+    python capcrack.py
+    ```
+3.  Follow the on-screen prompts to select whether to enable or disable the PRO features.
 
-## How it works
+## Disclaimer
 
-The script simply finds specific byte patterns in the CapCut DLL and replaces "vip_entrance" with "pro_fortnite" to trick the software into enabling premium features. It also deletes the watermark folder to prevent export watermarks.
-
-## Warning
-
-Use at your own risk. This is for educational purposes only. I'm not responsible if you break something or violate CapCut's terms of service.
-
-## Notes
-
-- Rounded text boxes in the terminal
-- Color-coded status messages
-- Simplified interface
-
-## Credits
-
-Original concept by Germanized
+This tool is intended for educational purposes only. Modifying software can be against the terms of service of the software provider. Use at your own risk.
